@@ -11,6 +11,7 @@ import{
      NavBtn,
      NavBtnLink
     } from './NavbarElements';
+import '../../App.css';
 
 
  const Navbar = ({toggle}) => {
@@ -38,7 +39,8 @@ import{
               
           </NavMenu>
   <NavBtn>
-    <NavBtnLink to='/signin'>sign in</NavBtnLink>
+    {/*<NavBtnLink to='/signin'>sign in</NavBtnLink> */}
+    <a className="noLink text-color-white" href="login">Login</a>
   </NavBtn>
       </NavbarContainer>
   </Nav>
