@@ -36,6 +36,10 @@ import '../../App.css';
               <NavItem>
                 <NavLinks to="signup">sign up</NavLinks>
               </NavItem>
+              <NavBtn>
+              <a className="noLink text-color-white" href="appointment">Create Appointment</a>
+              
+              </NavBtn>
               
           </NavMenu>
   <NavBtn>

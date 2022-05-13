@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import Header from "../common/Header"
 
 function Login() {
     // React States
@@ -27,13 +28,15 @@ function Login() {
     //Prevent page reload
     event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
+    let { uname, pass } = document.forms[0];
 
+    login(uname,pass);
+    
     // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+    // const userData = database.find((user) => user.username === uname.value);
 
     // Compare user info
-    if (userData) {
+    /*if (userData) {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
@@ -43,8 +46,29 @@ function Login() {
     } else {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
-    }
+    }*/
   };
+
+
+  const login = async (name, pass) => {
+
+    const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      email:"test@test.com",
+      password:"123456"
+    })
+  });
+
+  const loginToken = await getLoginToken.json();
+  localStorage.setItem("loginToken", loginToken.token)
+
+  window.location = '/'
+
+  }
 
   // Generate JSX code for error message
   const renderErrorMessage = (name) =>
@@ -56,18 +80,18 @@ function Login() {
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className='form-control'>
           <label>Username </label>
           <input type="text" name="uname" required />
           {renderErrorMessage("uname")}
         </div>
-        <div className="input-container">
+        <div className='form-control'>
           <label>Password </label>
           <input type="password" name="pass" required />
           {renderErrorMessage("pass")}
         </div>
-        <div className="button-container">
-          <input type="submit" />
+        <div>
+          <input type='submit' value='Sign in' style={{background:'#DAA520', color: 'black'}} className='btn btn-block'/>
         </div>
       </form>
     </div>
@@ -76,7 +100,9 @@ function Login() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">Sign In</div>
+        <div>
+          <Header title={'Sign in'}/>
+        </div>
         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
       </div>
     </div>

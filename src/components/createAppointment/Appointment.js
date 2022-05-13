@@ -6,7 +6,7 @@ const addAppointment = async (appointment) => {
   
   // LOGIN
 
-  const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
+  /*const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json'
@@ -17,7 +17,11 @@ const addAppointment = async (appointment) => {
     })
   });
 
-  const loginToken = await getLoginToken.json();
+  const loginToken = await getLoginToken.json();*/
+
+  // GET TOKEN FROM LOCALSTORAGE
+
+  const loginToken = localStorage.getItem("loginToken")
 
   // GET STAFF
 
@@ -25,7 +29,7 @@ const addAppointment = async (appointment) => {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
-      'Authorization':'Bearer ' + loginToken.token
+      'Authorization':'Bearer ' + loginToken
     }
   });
 
@@ -49,14 +53,14 @@ const addAppointment = async (appointment) => {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      'Authorization': 'Bearer ' + loginToken.token
+      'Authorization': 'Bearer ' + loginToken
     },
     body: JSON.stringify(data12),
   })
 
   const data = await res.json()
 
-
+  window.location = '/'
 }
 
 function Appointment() {
