@@ -5,13 +5,13 @@ function Login() {
     // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [uname, setUname] = useState('')
+  const [pass, setPass] = useState('')
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-
-    let { uname, pass } = document.forms[0];
-
+    
     login(uname,pass);
   };
 
@@ -30,6 +30,7 @@ function Login() {
     });
 
     const loginToken = await getLoginToken.json();
+
     localStorage.setItem("loginToken", loginToken.token)
 
     window.location = '/'
@@ -47,12 +48,12 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div className='form-control'>
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input type="text" value={uname} required onChange={(e) => setUname(e.target.value)} />
           {renderErrorMessage("uname")}
         </div>
         <div className='form-control'>
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input type="password" value={pass} required onChange={(e) => setPass(e.target.value)} />
           {renderErrorMessage("pass")}
         </div>
         <div>
