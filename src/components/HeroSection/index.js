@@ -12,6 +12,16 @@ import{
        ArrowForward,
        ArrowRight } 
 from './HeroElements';
+import VideoGif from '../../videos/ezgif.com-gif-maker.gif'
+
+// GET TOKEN FROM LOCALSTORAGE
+
+const loginToken = localStorage.getItem("loginToken")
+
+const goToCreateAppointment = () => {
+  window.location = '/appointment'
+}
+
 
 const HeroSection = () => {
   
@@ -27,6 +37,7 @@ const HeroSection = () => {
             <VideoBg autoPlay loop muted src={Video} 
             type='video/mp4' />
              */}
+            <div className="bk_Img" style={{backgroundImage: "url(" + VideoGif + ")",backgroundSize: "cover",height: "100vh",}}></div>
         </HeroBg>
         <HeroContent>
           <HeroH1>Welcome to <i>cuts</i></HeroH1>
@@ -34,10 +45,12 @@ const HeroSection = () => {
              book an appointment with
              just the click of a button. 
           </HeroP>
+              { loginToken && 
           <HeroBtnWrapper>
             <Button to='signup' 
             onMouseEnter={onHover}
             onMouseLeave={onHover}
+            onClick={goToCreateAppointment}
             primary='true'
             dark = 'true'
             >
@@ -46,6 +59,8 @@ const HeroSection = () => {
               />}
             </Button>
           </HeroBtnWrapper>
+
+          }
         </HeroContent>
     </HeroContainer>
   );

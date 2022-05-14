@@ -46,13 +46,7 @@ const loginToken = localStorage.getItem("loginToken")
               <NavItem>
                 <NavLinks to="signup">sign up</NavLinks>
               </NavItem>
-              { 
-              loginToken &&
-              <NavBtn>
-              <a className="noLink text-color-white" href="appointment">Create Appointment</a>
-              </NavBtn>
-              }
-              
+                          
           </NavMenu>
           
           { loginToken ? <NavBtn><div className="noLink text-color-white" onClick={logout}>Logout</div> </NavBtn> :
