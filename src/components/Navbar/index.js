@@ -1,3 +1,4 @@
+import { getLoadingButtonUtilityClass } from '@mui/lab';
 import React from 'react';
 import {FaBars} from 'react-icons/fa'
 import{
@@ -11,7 +12,16 @@ import{
      NavBtn,
      NavBtnLink
     } from './NavbarElements';
-import '../../App.css';
+
+
+    const logout = () => {
+      localStorage.removeItem('loginToken');
+      window.location = '/'
+    }
+
+// GET TOKEN FROM LOCALSTORAGE
+
+const loginToken = localStorage.getItem("loginToken")
 
 
  const Navbar = ({toggle}) => {
@@ -36,16 +46,18 @@ import '../../App.css';
               <NavItem>
                 <NavLinks to="signup">sign up</NavLinks>
               </NavItem>
+              { 
+              loginToken &&
               <NavBtn>
               <a className="noLink text-color-white" href="appointment">Create Appointment</a>
-              
               </NavBtn>
+              }
               
           </NavMenu>
-  <NavBtn>
-    {/*<NavBtnLink to='/signin'>sign in</NavBtnLink> */}
-    <a className="noLink text-color-white" href="login">Login</a>
-  </NavBtn>
+          
+          { loginToken ? <NavBtn><div className="noLink text-color-white" onClick={logout}>Logout</div> </NavBtn> :
+           <NavBtn><a className="noLink text-color-white" href="login">Login</a></NavBtn> }
+
       </NavbarContainer>
   </Nav>
   </>

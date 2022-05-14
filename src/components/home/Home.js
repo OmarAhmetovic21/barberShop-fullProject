@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import Sidebar from "../sidebar"
-import Navbar from "../navbar"
-import HeroSection from '../heroSection'
+import Sidebar from "../Sidebar"
+import Navbar from "../Navbar"
+import HeroSection from '../HeroSection'
 
 function Home() {
 

@@ -1,24 +1,8 @@
 import AppointmentForm from './AppointmentForm';
 import Header from '../common/Header';
+import Navbar from "../Navbar"
 
 const addAppointment = async (appointment) => {
-
-  
-  // LOGIN
-
-  /*const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      email:"test@test.com",
-      password:"123456"
-    })
-  });
-
-  const loginToken = await getLoginToken.json();*/
-
   // GET TOKEN FROM LOCALSTORAGE
 
   const loginToken = localStorage.getItem("loginToken")
@@ -58,7 +42,7 @@ const addAppointment = async (appointment) => {
     body: JSON.stringify(data12),
   })
 
-  const data = await res.json()
+  await res.json()
 
   window.location = '/'
 }
@@ -66,6 +50,7 @@ const addAppointment = async (appointment) => {
 function Appointment() {
   return (
     <div>
+      <Navbar/>
       <Header/>
       <AppointmentForm onAdd={addAppointment}/>
     </div>

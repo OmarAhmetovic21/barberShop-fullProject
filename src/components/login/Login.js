@@ -1,28 +1,10 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import Header from "../common/Header"
 
 function Login() {
     // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
-
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
 
   const handleSubmit = (event) => {
     //Prevent page reload
@@ -31,43 +13,26 @@ function Login() {
     let { uname, pass } = document.forms[0];
 
     login(uname,pass);
-    
-    // Find user login info
-    // const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    /*if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }*/
   };
 
 
   const login = async (name, pass) => {
 
     const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      email:"test@test.com",
-      password:"123456"
-    })
-  });
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        email:"test@test.com",
+        password:"123456"
+      })
+    });
 
-  const loginToken = await getLoginToken.json();
-  localStorage.setItem("loginToken", loginToken.token)
+    const loginToken = await getLoginToken.json();
+    localStorage.setItem("loginToken", loginToken.token)
 
-  window.location = '/'
-
+    window.location = '/'
   }
 
   // Generate JSX code for error message
