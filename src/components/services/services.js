@@ -38,7 +38,7 @@ return (
      <h3>Beard: 7KM</h3>
 
      <div>
-      <img src={hairdyeImg} style={{height: '50vh', width: '100vh', marginTop: '100px', }}></img>
+      <img src={hairdyeImg} style={{height: '50vh', width: '100vh', marginTop: '50px', }}></img>
      </div>
      <h3 style={{marginBottom: '50px'}}>Hair dye: 15KM</h3>
      <div>
