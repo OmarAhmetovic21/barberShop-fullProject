@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import SignUp from './components/SignUp/SignUp';
 import Services from './components/services/services';
 import About from './components/about/about';
+import Team from './components/team/team';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/services' element={<Services />} />
         <Route path='/about' element={<About/>} />
+        <Route path='/team' element={<Team/>} />
       </Routes>
     </div>
   </Router>

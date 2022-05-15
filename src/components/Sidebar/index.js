@@ -28,10 +28,8 @@ const Sidebar = ({isOpen,toggle}) => {
             <SidebarMenu>
 
                 <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="about">About</a></SideBtnWrap>
-                
-                <SidebarLink to="team"onClick={toggle}>
-                    team
-                </SidebarLink>
+
+                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px"}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="team">team</a></SideBtnWrap>
 
                 <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px"}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="services">services</a></SideBtnWrap>
                 
