@@ -26,12 +26,13 @@ const Sidebar = ({isOpen,toggle}) => {
         </Icon>
         <SidebarWrapper>
             <SidebarMenu>
-                <SidebarLink to="about"onClick={toggle}>
-                    about
-                </SidebarLink>
+
+                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="about">About</a></SideBtnWrap>
+                
                 <SidebarLink to="team"onClick={toggle}>
                     team
                 </SidebarLink>
+
                 <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px"}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="services">services</a></SideBtnWrap>
                 
                 { loginToken ? <></>: <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="SignUp">sign up</a></SideBtnWrap> }

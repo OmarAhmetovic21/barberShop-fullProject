@@ -34,16 +34,17 @@ const loginToken = localStorage.getItem("loginToken")
               <FaBars />
           </MobileIcon>
           <NavMenu>
-              <NavItem>
-                <NavLinks to="about">About</NavLinks>
-              </NavItem>
+        
+              <NavBtn style={{marginRight: "10px", marginLeft: "10px"}}><a className="noLink text-color-white" href="about">About</a></NavBtn>
+              
               <NavItem>
                 <NavLinks to="team">team</NavLinks>
               </NavItem>
-
-                <NavBtn style={{paddingRight: "10px", paddingLeft: "10px"}}><a className="noLink text-color-white" href="services">services</a></NavBtn>
               
-              { loginToken ? <></>: <NavBtn><a className="noLink text-color-white" href="SignUp">sign up</a></NavBtn> }
+
+                <NavBtn style={{marginRight: "10px", marginLeft: "10px"}}><a className="noLink text-color-white" href="services">services</a></NavBtn>
+              
+              { loginToken ? <></>: <NavBtn style={{marginRight: "10px", marginLeft: "10px"}}><a className="noLink text-color-white" href="SignUp">sign up</a></NavBtn> }
               
                           
           </NavMenu>
