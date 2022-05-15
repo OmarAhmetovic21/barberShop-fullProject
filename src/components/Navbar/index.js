@@ -40,16 +40,16 @@ const loginToken = localStorage.getItem("loginToken")
               <NavItem>
                 <NavLinks to="team">team</NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks to="services">services</NavLinks>
-              </NavItem>
+
+                <NavBtn style={{paddingRight: "10px", paddingLeft: "10px"}}><a className="noLink text-color-white" href="services">services</a></NavBtn>
+              
               { loginToken ? <></>: <NavBtn><a className="noLink text-color-white" href="SignUp">sign up</a></NavBtn> }
-            
+              
                           
           </NavMenu>
           
-          { loginToken ? <NavBtn><div className="noLink text-color-white" onClick={logout}>Logout</div> </NavBtn> :
-           <NavBtn><a className="noLink text-color-white" href="login">Sign in</a></NavBtn> }
+          { loginToken ? <NavBtn style={{paddingRight: "10px", paddingLeft: "10px"}}><div className="noLink text-color-white" onClick={logout}>Logout</div> </NavBtn> :
+           <NavBtn style={{paddingRight: "10px", paddingLeft: "10px"}}><a className="noLink text-color-white" href="login">Sign in</a></NavBtn> }
 
       </NavbarContainer>
   </Nav>
