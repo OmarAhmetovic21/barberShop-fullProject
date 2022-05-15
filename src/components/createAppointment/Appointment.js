@@ -1,6 +1,17 @@
 import AppointmentForm from './AppointmentForm';
 import Header from '../common/Header';
 import Navbar from "../Navbar"
+import Sidebar from '../Sidebar';
+import React, { useState } from "react";
+
+export default function Appointment() {
+
+  const[isOpen, setIsOpen] = useState(false);
+
+  const toggleFun = ()=> {
+    setIsOpen(!isOpen);
+
+};
 
 const addAppointment = async (appointment) => {
   // GET TOKEN FROM LOCALSTORAGE
@@ -47,10 +58,10 @@ const addAppointment = async (appointment) => {
   window.location = '/'
 }
 
-function Appointment() {
   return (
     <div>
-      <Navbar/>
+      <Sidebar isOpen={isOpen} toggle={toggleFun}/>
+      <Navbar toggle={toggleFun}/>
       <Header/>
       <AppointmentForm onAdd={addAppointment}/>
     </div>
@@ -58,4 +69,4 @@ function Appointment() {
   );
 }
 
-export default Appointment;
+

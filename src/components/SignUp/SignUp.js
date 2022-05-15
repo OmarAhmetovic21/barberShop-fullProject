@@ -3,12 +3,12 @@ import Header from "../common/Header"
 import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
 
-function Login() {
+function SignUp() {
     // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [uname, setUname] = useState('')
-  const [pass, setPass] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
 
   const[isOpen, setIsOpen] = useState(false);
 
@@ -21,49 +21,47 @@ function Login() {
     //Prevent page reload
     event.preventDefault();
     
-    login(uname,pass);
+    signUp(name, email, password, phoneNumber);
   };
 
 
-  const login = async (name, pass) => {
+  const signUp = async (name, email, password, phoneNumber) => {
 
-    const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
+    const registerData = await fetch('http://localhost:5000/api/v1/auth/register', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify({
-        email: name,
-        password:pass
+        name: name,
+        email: email,
+        password:password,
+        phonenumber: phoneNumber
       })
     });
 
-    const loginToken = await getLoginToken.json();
-
-    localStorage.setItem("loginToken", loginToken.token)
-
     window.location = '/'
   }
-
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
 
   // JSX code for login form
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
         <div className='form-control'>
-          <label>Username </label>
-          <input type="text" value={uname} required onChange={(e) => setUname(e.target.value)} />
-          {renderErrorMessage("uname")}
+          <label>Name </label>
+          <input type="text" value={name} required onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className='form-control'>
+          <label>Email </label>
+          <input type="text" value={email} required onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className='form-control'>
           <label>Password </label>
-          <input type="password" value={pass} required onChange={(e) => setPass(e.target.value)} />
-          {renderErrorMessage("pass")}
+          <input type="password" value={password} required onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <div className='form-control'>
+          <label>Phone Number </label>
+          <input type="text" value={phoneNumber} required onChange={(e) => setPhoneNumber(e.target.value)} />
         </div>
         <div>
           <input type='submit' value='Sign in' style={{background:'#DAA520', color: 'black'}} className='btn btn-block'/>
@@ -78,13 +76,13 @@ function Login() {
         <div>
         <Sidebar isOpen={isOpen} toggle={toggleFun}/>
         <Navbar toggle={toggleFun}/>
-          <Header title={'Sign in'}/>
+          <Header title={'Sign up'}/>
         </div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        {renderForm}
       </div>
     </div>
   );
 
 }
 
-export default Login;
+export default SignUp;

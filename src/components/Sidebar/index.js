@@ -35,13 +35,12 @@ const Sidebar = ({isOpen,toggle}) => {
                 <SidebarLink to="services"onClick={toggle}>
                     services
                 </SidebarLink>
-                <SidebarLink to="signup"onClick={toggle}>
-                    sign up
-                </SidebarLink>
+                
+                { loginToken ? <></>: <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="SignUp">sign up</a></SideBtnWrap> }
             </SidebarMenu>
         </SidebarWrapper>
 
-        { loginToken ? <SideBtnWrap><div className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
+        { loginToken ? <SideBtnWrap><div style={{fontSize: "24px"}} className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
            <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Sign in</a></SideBtnWrap> }
     </SidebarContainer>
   );
