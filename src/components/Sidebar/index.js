@@ -9,6 +9,13 @@ import { SidebarContainer,
          SidebarRoute } from 
 './SidebarElements';
 
+const logout = () => {
+    localStorage.removeItem('loginToken');
+    window.location = '/'
+  }
+
+const loginToken = localStorage.getItem("loginToken")
+
 const Sidebar = ({isOpen,toggle}) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -32,12 +39,13 @@ const Sidebar = ({isOpen,toggle}) => {
                     sign up
                 </SidebarLink>
             </SidebarMenu>
-            <SideBtnWrap>
-                <SidebarRoute to="/signin">Sign in</SidebarRoute> 
-            </SideBtnWrap>
         </SidebarWrapper>
+
+        { loginToken ? <SideBtnWrap><div className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
+           <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Sign in</a></SideBtnWrap> }
     </SidebarContainer>
   );
+
 }
 
 export default Sidebar

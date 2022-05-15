@@ -50,7 +50,7 @@ const loginToken = localStorage.getItem("loginToken")
           </NavMenu>
           
           { loginToken ? <NavBtn><div className="noLink text-color-white" onClick={logout}>Logout</div> </NavBtn> :
-           <NavBtn><a className="noLink text-color-white" href="login">Login</a></NavBtn> }
+           <NavBtn><a className="noLink text-color-white" href="login">Sign in</a></NavBtn> }
 
       </NavbarContainer>
   </Nav>
