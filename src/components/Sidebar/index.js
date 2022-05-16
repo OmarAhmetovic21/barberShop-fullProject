@@ -29,16 +29,18 @@ const Sidebar = ({isOpen,toggle}) => {
 
                 <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="about">About</a></SideBtnWrap>
 
-                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px"}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="team">team</a></SideBtnWrap>
+                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px",marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="team">team</a></SideBtnWrap>
 
-                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px"}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="services">services</a></SideBtnWrap>
+                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="services">services</a></SideBtnWrap>
                 
-                { loginToken ? <></>: <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="SignUp">sign up</a></SideBtnWrap> }
+                { loginToken ? <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="listAppointments">appointments</a></SideBtnWrap>: 
+                <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginTop: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="SignUp">sign up</a></SideBtnWrap> }
             </SidebarMenu>
+
         </SidebarWrapper>
 
-        { loginToken ? <SideBtnWrap><div style={{fontSize: "24px"}} className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
-           <SideBtnWrap><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Sign in</a></SideBtnWrap> }
+        { loginToken ? <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginBottom: '50px'}}><div style={{fontSize: "24px"}} className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
+           <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginBottom: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Sign in</a></SideBtnWrap> }
     </SidebarContainer>
   );
 

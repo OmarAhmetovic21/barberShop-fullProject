@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import Services from './components/services/services';
 import About from './components/about/about';
 import Team from './components/team/team';
+import ListAppointments from './components/listAppointments/listAppointments';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/services' element={<Services />} />
         <Route path='/about' element={<About/>} />
         <Route path='/team' element={<Team/>} />
+        <Route path='/listappointments' element={<ListAppointments/>} />
       </Routes>
     </div>
   </Router>
