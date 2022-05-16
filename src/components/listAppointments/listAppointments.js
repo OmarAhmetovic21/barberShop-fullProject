@@ -42,7 +42,7 @@ return (
     <div>
       <Sidebar isOpen={isOpen} toggle={toggleFun}/>
       <Navbar toggle={toggleFun}/>
-      <Header title={'Appointments List'}/>
+      <Header title={'Appointments'}/>
 
       <ul style={{marginTop: '50px', lineHeight:'3em'}}>
       {
@@ -52,11 +52,11 @@ return (
     { 
       moment(object.date).format('DD-MM-YYYY')
       } 
-        {" "}
+        {", "}
       { 
       object.startTime
       }
-        {" "}
+        {", "}
         
       { 
       object.options[0].option
