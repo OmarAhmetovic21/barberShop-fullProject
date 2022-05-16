@@ -58,7 +58,7 @@ const addAppointment = async (appointment) => {
     body: JSON.stringify(data12),
   })
 
-  if(res.status !== 200) {
+  if(res.status !== 201) {
     alert('Api error')
     return
   }
