@@ -24,7 +24,7 @@ const AppointmentForm = ({ onAdd }) => {
   const addDateAndTime  = async (dateAndTime) => {
     
     const givenDate = moment(dateAndTime.newValue).format('YYYY-MM-DD');
-    const givenTime = moment(dateAndTime.newValue).format('HH:MM');
+    const givenTime = moment(dateAndTime.newValue).format('HH:mm');
     setDate(givenDate);
     setTime(givenTime);
     setDateAndTime(dateAndTime.newValue);
