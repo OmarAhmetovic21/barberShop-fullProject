@@ -26,23 +26,30 @@ function Login() {
 
 
   const login = async (name, pass) => {
+    
+      const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: name,
+          password:pass
+        })
+      });
+  
+      const loginToken = await getLoginToken.json();
 
-    const getLoginToken = await fetch('http://localhost:5000/api/v1/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: name,
-        password:pass
-      })
-    });
-
-    const loginToken = await getLoginToken.json();
-
-    localStorage.setItem("loginToken", loginToken.token)
-
-    window.location = '/'
+      if(getLoginToken.status !== 200) {
+        alert('ERROR. Plase check username or password')
+        return
+      }
+  
+      localStorage.setItem("loginToken", loginToken.token)
+  
+      window.location = '/'
+    
+    
   }
 
   // Generate JSX code for error message

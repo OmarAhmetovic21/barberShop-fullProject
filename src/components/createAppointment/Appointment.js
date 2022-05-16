@@ -30,6 +30,11 @@ const addAppointment = async (appointment) => {
 
   const dataStaff = await getStaff.json();
 
+  if(dataStaff.status !== 200) {
+    alert('Api error')
+    return
+  }
+
   const data12 = {
     user: appointment.fName,
     staff: dataStaff.data._id,
@@ -52,6 +57,11 @@ const addAppointment = async (appointment) => {
     },
     body: JSON.stringify(data12),
   })
+
+  if(res.status !== 200) {
+    alert('Api error')
+    return
+  }
 
   await res.json()
 

@@ -40,6 +40,11 @@ function SignUp() {
       })
     });
 
+    if(registerData.status !== 200) {
+      alert('Api error')
+      return
+    }
+
     window.location = '/'
   }
 
