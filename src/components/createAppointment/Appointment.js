@@ -30,7 +30,7 @@ const addAppointment = async (appointment) => {
 
   const dataStaff = await getStaff.json();
 
-  if(dataStaff.status !== 200) {
+  if(getStaff.status !== 200) {
     alert('Api error')
     return
   }
