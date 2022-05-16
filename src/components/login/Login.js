@@ -73,7 +73,7 @@ function Login() {
           {renderErrorMessage("pass")}
         </div>
         <div>
-          <input type='submit' value='Sign in' style={{background:'#DAA520', color: 'black'}} className='btn btn-block'/>
+          <input type='submit' value='Login' style={{background:'#DAA520', color: 'black'}} className='btn btn-block'/>
         </div>
       </form>
     </div>
