@@ -44,7 +44,7 @@ return (
       <Navbar toggle={toggleFun}/>
       <Header title={'Appointments List'}/>
 
-      <ul>
+      <ul style={{marginTop: '50px', lineHeight:'3em'}}>
       {
           data.length > 0 && (
       data.map((object, i) => 
@@ -57,6 +57,7 @@ return (
       object.startTime
       }
         {" "}
+        
       { 
       object.options[0].option
       }

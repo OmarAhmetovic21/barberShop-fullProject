@@ -40,7 +40,7 @@ const Sidebar = ({isOpen,toggle}) => {
         </SidebarWrapper>
 
         { loginToken ? <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginBottom: '50px'}}><div style={{fontSize: "24px"}} className="noLink text-color-white" onClick={logout}>Logout</div> </SideBtnWrap> :
-           <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginBottom: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Sign in</a></SideBtnWrap> }
+           <SideBtnWrap style={{paddingRight: "20px", paddingLeft: "20px", marginBottom: '50px'}}><a style={{fontSize: "24px"}} className="noLink text-color-white" href="login">Login</a></SideBtnWrap> }
     </SidebarContainer>
   );
 

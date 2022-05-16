@@ -63,7 +63,7 @@ function Login() {
     <div className="form">
       <form onSubmit={handleSubmit}>
         <div className='form-control'>
-          <label>Username </label>
+          <label>Email </label>
           <input type="text" value={uname} required onChange={(e) => setUname(e.target.value)} />
           {renderErrorMessage("uname")}
         </div>
@@ -85,7 +85,7 @@ function Login() {
         <div>
         <Sidebar isOpen={isOpen} toggle={toggleFun}/>
         <Navbar toggle={toggleFun}/>
-          <Header title={'Sign in'}/>
+          <Header title={'Login'}/>
         </div>
         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
       </div>
