@@ -28,7 +28,7 @@ export default function About(){
        THURSDAY: 09:00-21:00 <br></br>
        FRIDAY: 09:00-21:00 <br></br>
        SATURDAY: 09:00-21:00 <br></br>
-       SUNNDAY: 09:00-21:00 <br></br>
+       SUNDAY: 09:00-21:00 <br></br>
        </p>
 
        <h1 style={{marginTop: '125px'}}>Quality matters over everything</h1>
